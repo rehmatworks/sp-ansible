@@ -2,3 +2,4 @@
 spname: serverpack
 vhostsdir: vhosts.d
 webroot: /srv/data
+defaultgroup: spgroup
