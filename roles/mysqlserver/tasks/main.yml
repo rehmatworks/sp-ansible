@@ -1,6 +1,7 @@
 -   name: Installing MySQL Python module (Required)
     pip:
         name: MySQL-python
+        executable: pip3
 
 -   name: Installing MySQL server
     apt:
