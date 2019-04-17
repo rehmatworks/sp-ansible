@@ -18,5 +18,5 @@
         entity: "{{ defaultgroup }}"
         etype: group
         permissions: x
-        recurse: yes
+        recursive: yes
         state: present
