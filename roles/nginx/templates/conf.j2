@@ -47,5 +47,5 @@ http {
     keepalive_requests 100000;
     include  "{{ nginxroot }}/mime.types";
     include "{{ nginxroot }}/{{ spname }}/*.conf";
-    include "{{ nginxroot }}/{{ vhostsdir }}/*.conf";
+    include "{{ nginxroot }}/{{ vhostdir }}/*.conf";
 }

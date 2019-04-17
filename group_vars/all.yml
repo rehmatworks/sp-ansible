@@ -1,5 +1,5 @@
 ---
 spname: serverpack
-vhostsdir: vhosts.d
+vhostdir: vhosts.d
 webroot: /srv/data
 defaultgroup: spgroup
