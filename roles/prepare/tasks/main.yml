@@ -1,3 +1,8 @@
+-   name: Installing required libraries
+    apt:
+        name: ["python3", "python3-pip"]
+        state: present
+
 -   name: Creating web root directory
     file:
         path: "{{ webroot }}"
