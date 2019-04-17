@@ -31,14 +31,14 @@
 -   name: Updating selected PHP ini values
     template:
         src: 10-serverpack.j2
-        dest: /etc/php/{{ item }}/fpm/conf.d/10-serverpack.ini
+        dest: /etc/php/{{ item.name }}/fpm/conf.d/10-serverpack.ini
     with_items:
         - "{{ phpversions }}"
 
 -   name: Updating PHP-FPM configuration
     template:
         src: fpmconf.j2
-        dest: /etc/php/{{ item }}/fpm/php-fpm.conf
+        dest: /etc/php/{{ item.name }}/fpm/php-fpm.conf
     with_items:
         - "{{ phpversions }}"
     notify: reload php
