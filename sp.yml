@@ -4,4 +4,4 @@
   roles:
       - prepare
       - apache
-      - geerlingguy.mysql
+      - mysql
