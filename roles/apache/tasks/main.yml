@@ -3,7 +3,7 @@
         name: apache2
         state: present
 
--   name: Createing vhost directory
+-   name: Creating vhost directory
     file:
         path: "{{ apacheroot }}/{{ vhostdir }}"
         state: directory

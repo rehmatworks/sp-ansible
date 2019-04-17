@@ -1,6 +1,6 @@
 -   name: Installing MySQL server
     apt:
-        name: mysql-server
+        name: ["MySQL-python", "mysql", "mysql-server"]
         state: present
 
 -   name: Updaging root password
