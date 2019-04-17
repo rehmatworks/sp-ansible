@@ -13,5 +13,5 @@
         value="'Internet Site'"
         vtype="string"
 
--   name: Instaling Postfix
+-   name: Installing Postfix
     apt: name=postfix state=present
