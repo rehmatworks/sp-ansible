@@ -9,21 +9,56 @@
 
 -   name: Installing selected PHP versions
     apt:
-        name: "php{{ item.name }}"
+        name: "php{{ item }}"
         state: present
     with_items:
         - "{{ phpversions }}"
 
--   name: Installing PHP modules
+-   name: Installing PHP 5.6 modules
     apt:
-        name: "{{ item.modules }}"
+        name: "php5.6{{ item }}"
         state: present
     with_items:
-        - "{{ phpversions }}"
+        - "{{ phpmodules }}"
+
+-   name: Installing PHP 5.6 modules
+    apt:
+        name: "php5.6-{{ item }}"
+        state: present
+    with_items:
+        - "{{ phpmodules }}"
+
+-   name: Installing PHP 7.0 modules
+    apt:
+        name: "php7.0-{{ item }}"
+        state: present
+    with_items:
+        - "{{ phpmodules }}"
+
+-   name: Installing PHP 7.1 modules
+    apt:
+        name: "php7.1-{{ item }}"
+        state: present
+    with_items:
+        - "{{ phpmodules }}"
+
+-   name: Installing PHP 7.2 modules
+    apt:
+        name: "php7.2-{{ item }}"
+        state: present
+    with_items:
+        - "{{ phpmodules }}"
+
+-   name: Installing PHP 7.3 modules
+    apt:
+        name: "php7.3-{{ item }}"
+        state: present
+    with_items:
+        - "{{ phpmodules }}"
 
 -   name: Installing PHP-FPM
     apt:
-        name: "php{{ item.name }}-fpm"
+        name: "php{{ item }}-fpm"
         state: present
     with_items:
         - "{{ phpversions }}"
@@ -31,14 +66,14 @@
 -   name: Updating selected PHP ini values
     template:
         src: 10-serverpack.j2
-        dest: /etc/php/{{ item.name }}/fpm/conf.d/10-serverpack.ini
+        dest: /etc/php/{{ item }}/fpm/conf.d/10-serverpack.ini
     with_items:
         - "{{ phpversions }}"
 
 -   name: Updating PHP-FPM configuration
     template:
         src: fpmconf.j2
-        dest: /etc/php/{{ item.name }}/fpm/php-fpm.conf
+        dest: /etc/php/{{ item }}/fpm/php-fpm.conf
     with_items:
         - "{{ phpversions }}"
     notify: reload php
