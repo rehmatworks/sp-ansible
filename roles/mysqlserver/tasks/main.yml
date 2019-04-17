@@ -1,7 +1,6 @@
 -   name: Installing MySQL Python module (Required)
     pip:
-        name: mysqlclient
-        executable: pip3
+        name: MySQL-python
 
 -   name: Installing MySQL server
     apt:
