@@ -12,8 +12,10 @@
         name: php{{ item.key }}
         state: present
         apt:
-            name: {{ item.value }}
+            name: {{ item }}
             state: present
+        with_items:
+            {{ item.value }}
     with_items: "{{ phpversions }}"
 
 -   name: Installing PHP-FPM
