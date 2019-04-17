@@ -11,11 +11,13 @@
     apt:
         name: php{{ item.key }}
         state: present
-        apt:
-            name: {{ item }}
-            state: present
-        with_items:
-            - "{{ item.value }}"
+    with_items:
+        - "{{ phpversions }}"
+
+-   name: Installing PHP modules
+    apt:
+        name: {{ item.value }}
+        state: present
     with_items:
         - "{{ phpversions }}"
 
