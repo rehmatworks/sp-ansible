@@ -1,10 +1,10 @@
 ---
 -   name: restart php
     service:
-        name: {{ item }}
+        name: php5.6-fpm
         state: restarted
 
 -   name: reload php
     service:
-        name: {{ item }}
+        name: php5.6-fpm
         state: reloaded
