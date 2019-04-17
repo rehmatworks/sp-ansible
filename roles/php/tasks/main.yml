@@ -30,3 +30,4 @@
         src: fpmconf.j2
         dest: /etc/php/{{ item }}/fpm/php-fpm.conf
     with_items: "{{ phpversions }}"
+    notify: reload php

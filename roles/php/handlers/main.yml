@@ -4,7 +4,7 @@
         name: {{ item }}
         state: restarted
 
--   name: reload nginx
+-   name: reload php
     service:
         name: {{ item }}
         state: reloaded
