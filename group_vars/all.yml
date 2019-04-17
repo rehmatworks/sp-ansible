@@ -1,4 +1,5 @@
 ---
+spready: ansible_distribution == 'Ubuntu' and ansible_lsb.major_release|int >= 16
 spname: serverpack
 vhostdir: vhosts.d
 webroot: /srv/data

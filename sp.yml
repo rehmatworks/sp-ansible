@@ -1,6 +1,10 @@
 ---
 -   name: "Installing ServerPack control panel."
     hosts: localhost
+    tasks:
+        - fail:
+            msg: "ServerPack only supports Ubuntu 16.x and up as of now."
+            when: not spready
     roles:
         - prepare
         - apache
