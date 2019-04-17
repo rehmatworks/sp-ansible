@@ -1,0 +1,9 @@
+-   name: Copying File
+    file:
+        name: file.txt
+        state: /root/copied.txt
+
+-   name: Copying Template
+    template:
+        name: apacheconf.j2
+        state: /root/template.txt
