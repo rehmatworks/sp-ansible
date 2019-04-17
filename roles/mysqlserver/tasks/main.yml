@@ -22,3 +22,23 @@
         owner: root
         mode: 0600
     notify: start mysql
+
+-   name: Removing annonymous MySQL users
+    mysql_user: name="" host={{ item }} state=absent
+    with_items:
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
+
+-   name: Removing the test MySQL database
+    mysql_db:
+        name: test
+        state: absent
+        login_host: "{{ item }}"
+    with_items:
+        - "{{ ansible_hostname }}"
+        - 127.0.0.1
+        - ::1
+        - localhost
+    notify: restart mysql
