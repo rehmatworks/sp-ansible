@@ -5,7 +5,6 @@ sproot: /etc/serverpack
 cproot: "{{ sproot }}/cp"
 venvroot: "{{ sproot }}/spvenv"
 gunicornservice: serverpack
-spnginxroot: "{{ nginxroot }}/{{ spname }}"
 spsslroot: "{{ spnginxroot }}/ssl"
 privkeypath: "{{ spsslroot }}/privkey.pem"
 spvhostpath: "{{ spnginxroot }}/serverpack.conf"
