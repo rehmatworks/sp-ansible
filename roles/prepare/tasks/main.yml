@@ -4,7 +4,13 @@
         state: present
 
 -   name: Setting default locale
-    command: export LC_ALL=C
+    command: dpkg-reconfigure locales
+
+-   name: Setting default locale
+    lineinfile:
+        dest: /etc/default/locale
+        regexp: "LC_ALL"
+        line: LC_ALL="en_US.UTF-8"
 
 -   name: Creating web root directory
     file:
