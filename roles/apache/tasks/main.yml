@@ -1,26 +1,26 @@
--   name: Install apache
+-   name: Installing Apache web server
     apt:
         name: apache2
         state: present
 
--   name: Create vhost dir
+-   name: Createing vhost directory
     file:
         path: "{{ apacheroot }}/{{ vhostdir }}"
         state: directory
 
--   name: Update apache conf
+-   name: Updating Apache configuration
     template:
         src: conf.j2
         dest: "{{ apacheroot }}/apache.conf"
     notify: reload apache
 
--   name: Update ports conf
+-   name: Updating ports configuration
     template:
         src: ports.j2
         dest: "{{ apacheroot }}/ports.conf"
     notify: reload apache
 
--   name: Delete obsolete dirs
+-   name: Deleting obsolete directories
     file:
         path: "{{ item }}"
         state: absent

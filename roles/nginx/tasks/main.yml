@@ -1,26 +1,26 @@
--   name: Install nginx
+-   name: Installing NGINX web server
     apt:
         name: nginx
         state: present
 
--   name: Create vhost dir
+-   name: Creating vhost directories
     file:
         path: "{{ nginxroot }}/{{ vhostdir }}"
         state: directory
 
--   name: Update nginx conf
+-   name: Updating nginx configuration
     template:
         src: conf.j2
         dest: "{{ nginxroot }}/nginx.conf"
     notify: reload nginx
 
--   name: Update nginx proxy params
+-   name: Updating NGINX proxy params
     template:
         src: params.j2
         dest: "{{ nginxroot }}/proxy_params"
     notify: reload nginx
 
--   name: Delete obsolete dirs
+-   name: Deleting obsolete directories
     file:
         path: "{{ item }}"
         state: absent

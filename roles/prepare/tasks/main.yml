@@ -1,14 +1,14 @@
--   name: Create web root
+-   name: Creating web root directory
     file:
         path: "{{ webroot }}"
         state: directory
 
--   name: Create default group
+-   name: Create default serverpack group
     group:
         name: "{{ defaultgroup }}"
         state: present
 
--   name: Configuring ACL for root
+-   name: Configuring ACL for root user
     acl:
         path: "{{ webroot }}"
         entity: root
