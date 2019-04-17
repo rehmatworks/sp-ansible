@@ -3,4 +3,5 @@
         rule: allow
         proto: tcp
         port: "{{ item }}"
-    with_items: {{ allowedports }}
+    with_items:
+        - "{{ allowedports }}"
