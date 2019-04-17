@@ -1,4 +1,3 @@
 ---
-name: Rehmat
-port: 8080
+apacheport: 8080
 apacheroot: /etc/apache2
