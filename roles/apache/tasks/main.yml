@@ -3,6 +3,11 @@
         name: apache2
         state: present
 
+-   name: Create vhost dir
+    file:
+        path: "/etc/apache2/{{ vhostdir }}"
+        state: directory
+
 -   name: Update apache conf
     template:
         src: conf.j2

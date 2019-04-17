@@ -1,0 +1,22 @@
+-   name: Create web root
+    file:
+        path: "{{ webroot }}"
+        state: directory
+
+-   name: Configuring ACL for root
+    acl:
+        path: "{{ webroot }}"
+        entity: root
+        etype: user
+        permissions: rwx
+        recurse: yes
+        state: present
+
+-   name: Configuring ACL for serverpack group
+    acl:
+        path: "{{ webroot }}"
+        entity: "{{ defaultgroup }}"
+        etype: group
+        permissions: x
+        recurse: yes
+        state: present
