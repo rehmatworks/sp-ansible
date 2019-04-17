@@ -25,9 +25,9 @@
 
 -   name: "Creating root login account."
     django_manage:
-        virtualenv: "{{ venvroot }}"
         command: "createspuser --username={{ username }} --email={{ email }} --password={{ password }}"
         app_path: "{{ cproot }}"
+        virtualenv: "{{ venvroot }}"
 
 -   name: "Installing Gunicorn server for ServerPack control panel."
     pip:
