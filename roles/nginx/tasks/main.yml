@@ -8,7 +8,7 @@
         path: "{{ nginxroot }}/{{ vhostdir }}"
         state: directory
 
--   name: Updating nginx configuration
+-   name: Updating NGINX configuration
     template:
         src: conf.j2
         dest: "{{ nginxroot }}/nginx.conf"
