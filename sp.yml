@@ -5,3 +5,4 @@
       - prepare
       - apache
       - nginx
+      - mysql
