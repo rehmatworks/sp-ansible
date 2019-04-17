@@ -28,3 +28,8 @@
         - "{{ apacheroot }}/sites-available"
         - "{{ apacheroot }}/sites-enabled"
     notify: restart apache
+
+-   name: Restarting Apache
+    sercice:
+        name: apache2
+        state: restarted
