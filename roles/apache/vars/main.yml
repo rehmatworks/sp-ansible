@@ -3,3 +3,4 @@ name: Rehmat
 vhostdir: vhosts.d
 webroot: /srv/data
 port: 8080
+apacheroot: /etc/apache2
