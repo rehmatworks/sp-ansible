@@ -12,11 +12,13 @@
     template:
         src: conf.j2
         dest: /etc/apache2/apache.conf
+    notify: reload apache
 
 -   name: Update ports conf
     template:
         src: ports.j2
         dest: /etc/ports.conf
+    notify: reload apache
 
 -   name: Delete obsolete dirs
     file:
