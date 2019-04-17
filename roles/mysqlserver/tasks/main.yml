@@ -14,3 +14,4 @@
         src: cnf.j2 dest=/root/.my.cnf
         owner: root
         mode: 0600
+    notify: start mysql
