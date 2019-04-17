@@ -9,7 +9,7 @@
 
 -   name: Installing selected PHP versions
     apt:
-        name: "php{{ item }}"
+        name: "php{{ item.name }}"
         state: present
     with_items:
         - "{{ phpversions }}"
