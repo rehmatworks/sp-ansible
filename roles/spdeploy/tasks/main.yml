@@ -53,7 +53,7 @@
 -   name: "Generating certificate signing request"
     command: openssl req \
         -new \
-        -subj '/C=PK/ST=GB/L=Gilgit Baltistan/O=ServerPack/CN={{ hostname }}'
+        -subj '/C=PK/ST=GB/L=Gilgit Baltistan/O=ServerPack/CN={{ ansible_hostname }}'
         -key "{{ privkeypath }}" \
         -out "{{ csrpath }}"
     args:
