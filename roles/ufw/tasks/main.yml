@@ -1,0 +1,6 @@
+-   name: "Opening needed ports"
+    ufw:
+        rule: allow
+        proto: tcp
+        port: "{{ item }}"
+    with_items: {{ allowedports }}

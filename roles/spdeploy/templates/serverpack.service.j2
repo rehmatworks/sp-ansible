@@ -1,0 +1,12 @@
+[Unit]
+Description=serverpack service
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory={{ cproot }}
+ExecStart={{ venvroot }}/bin/gunicorn --timeout 600 --access-logfile - --workers 3 --bind unix:{{ cproot }}/{{ projectname }}.sock {{ projectname }}.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

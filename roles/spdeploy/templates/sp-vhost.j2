@@ -1,0 +1,17 @@
+server {
+    listen "{{ spport }}" ssl http2;
+    server_name _;
+    location /favicon.ico {access_log off;log_not_found off;}
+
+    location /static/ {
+        root {{ cproot }};
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:{{ cproot }}/{{ projectname }}.sock;
+    }
+
+    ssl_certificate "{{ crtpath }}";
+    ssl_certificate_key "{{ privkeypath }}";
+}

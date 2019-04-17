@@ -46,6 +46,6 @@ http {
     keepalive_timeout 30;
     keepalive_requests 100000;
     include  "{{ nginxroot }}/mime.types";
-    include "{{ nginxroot }}/{{ spname }}/*.conf";
+    include "{{ spnginxroot }}/*.conf";
     include "{{ nginxroot }}/{{ vhostdir }}/*.conf";
 }
