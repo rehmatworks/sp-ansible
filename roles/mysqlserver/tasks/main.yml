@@ -1,11 +1,4 @@
--   name: Installing MySQL server
+-   name: Installing mysql server
     apt:
         name: mysql-server
         state: present
-
--   name: Generating conf file
-    template:
-        src: cnf.j2 dest=/root/.my.cnf
-        owner: root
-        mode: 0600
-    notify: start mysql
