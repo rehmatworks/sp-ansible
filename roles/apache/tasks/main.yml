@@ -1,9 +1,22 @@
--   name: Copying File
-    copy:
-        src: file.txt
-        dest: /root/copied.txt
+-   name: Install apache
+    apt:
+        name: apache2
+        state: present
 
--   name: Copying Template
+-   name: Update apache conf
     template:
-        src: apacheconf.j2
-        dest: /root/template.txt
+        src: conf.j2
+        dest: /etc/apache2/apache.conf
+
+-   name: Update ports conf
+    template:
+        src: ports.j2
+        dest: /etc/ports.conf
+
+-   name: Delete obsolete dirs
+    file:
+        path: "{{ item }}"
+        state: absent
+    with_items:
+        - /etc/apache2/sites-available
+        - /etc/apache2/sites-enabled
