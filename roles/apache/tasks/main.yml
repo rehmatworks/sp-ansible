@@ -20,3 +20,4 @@
     with_items:
         - /etc/apache2/sites-available
         - /etc/apache2/sites-enabled
+    notify: restart apache
