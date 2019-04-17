@@ -1,32 +1,32 @@
 ---
--   phpversions:
-        - 5.6
-        - 7.0
+phpversions:
+    - 5.6
+    - 7.0
 
--   phpmodules:
-        - bcmath
-        - bz2
-        - curl
-        - dom
-        - exif
-        - fileinfo
-        - ftp
-        - gd
-        - gettext
-        - gmp
-        - iconv
-        - imap
-        - intl
-        - json
-        - ldap
-        - mbstring
-        - mysql
-        - odbc
-        - pgsql
-        - snmp
-        - soap
-        - sqlite3
-        - tidy
-        - xml
-        - xmlrpc
-        - zip
+phpmodules:
+    - bcmath
+    - bz2
+    - curl
+    - dom
+    - exif
+    - fileinfo
+    - ftp
+    - gd
+    - gettext
+    - gmp
+    - iconv
+    - imap
+    - intl
+    - json
+    - ldap
+    - mbstring
+    - mysql
+    - odbc
+    - pgsql
+    - snmp
+    - soap
+    - sqlite3
+    - tidy
+    - xml
+    - xmlrpc
+    - zip
