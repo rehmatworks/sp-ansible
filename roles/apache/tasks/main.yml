@@ -12,13 +12,13 @@
     template:
         src: conf.j2
         dest: "{{ apacheroot }}/apache.conf"
-    notify: reload apache
+    notify: restart apache
 
 -   name: Updating ports configuration
     template:
         src: ports.j2
         dest: "{{ apacheroot }}/ports.conf"
-    notify: reload apache
+    notify: restart apache
 
 -   name: Deleting obsolete directories
     file:
