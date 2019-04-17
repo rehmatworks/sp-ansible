@@ -1,5 +1,5 @@
 -   name: Copying File
-    file:
+    copy:
         src: file.txt
         dest: /root/copied.txt
 
