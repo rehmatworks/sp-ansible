@@ -1,2 +1,4 @@
 ---
-spname: "serverpack"
+spname: serverpack
+vhostsdir: vhosts.d
+webroot: /srv/data
