@@ -29,6 +29,11 @@
         - "{{ apacheroot }}/sites-enabled"
     notify: restart apache
 
+-   name: Enabling Apache rewrite module
+    apache2_module:
+        name: rewrite
+        state: present
+
 -   name: Restarting Apache
     service:
         name: apache2
