@@ -4,7 +4,11 @@
         state: present
 
 -   name: Ensure locale is in tact
-    command: export LC_ALL=C
+    command: {{ item }}
+    with_items:
+        -   export LC_ALL="en_US.UTF-8"
+        -   export LC_CTYPE="en_US.UTF-8"
+        -   dpkg-reconfigure locales
 
 -   name: Creating web root directory
     file:
