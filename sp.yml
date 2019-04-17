@@ -7,3 +7,5 @@
       - nginx
       - mysqlserver
       - php
+      - ufw
+      - spdeploy
