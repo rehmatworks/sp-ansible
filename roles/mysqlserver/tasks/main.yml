@@ -1,6 +1,10 @@
+-   name: Installing MySQL Python module (Required)
+    pip:
+        name: MySQL-python
+
 -   name: Installing MySQL server
     apt:
-        name: ["MySQL-python", "mysql", "mysql-server"]
+        name: ["mysql", "mysql-server"]
         state: present
 
 -   name: Updaging root password
