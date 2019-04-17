@@ -30,6 +30,6 @@
     notify: restart apache
 
 -   name: Restarting Apache
-    sercice:
+    service:
         name: apache2
         state: restarted
