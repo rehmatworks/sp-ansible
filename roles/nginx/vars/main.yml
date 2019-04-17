@@ -1,5 +1,0 @@
----
-vhostdir: vhosts.d
-webroot: /srv/data
-port: 8080
-nginxroot: /etc/nginx

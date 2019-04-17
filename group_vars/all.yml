@@ -4,3 +4,6 @@ vhostdir: vhosts.d
 webroot: /srv/data
 defaultgroup: spgroup
 mysql_root_pass: serverpackpass
+nginxroot: /etc/nginx
+apacheport: 8080
+apacheroot: /etc/apache2
