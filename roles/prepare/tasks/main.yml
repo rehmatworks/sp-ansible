@@ -4,13 +4,7 @@
         state: present
 
 -   name: Setting default locale
-    command: update-locale LC_ALL=en_US.UTF-8
-
--   name: Setting default locale
-    lineinfile:
-        dest: /etc/default/locale
-        regexp: "LC_ALL"
-        line: LC_ALL="en_US.UTF-8"
+    command: export LC_ALL=C
 
 -   name: Creating web root directory
     file:
