@@ -1,0 +1,17 @@
+---
+-   name: Setting Postfix hostname
+    debconf:
+        name=postifx
+        question="postfix/mailname"
+        value="{{ ansible_hostname }}"
+        vtype="string"
+
+-   name: Preparing Postfix installation
+    debconf:
+        name=postfix
+        question="postfix/main_mailer_type"
+        value="'Internet Site'"
+        vtype="string"
+
+-   name: Instaling Postfix
+    apt: name=postfix state=present

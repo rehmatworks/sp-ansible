@@ -3,6 +3,12 @@
         name: apache2
         state: present
 
+-   name: Installing some needed modules
+    apt:
+        name: ["libapache2-mod-fcgid"]
+        state: present
+    notify: restart apache
+
 -   name: Creating vhost directory
     file:
         path: "{{ apacheroot }}/{{ vhostdir }}"

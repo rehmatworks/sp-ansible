@@ -8,4 +8,5 @@
         - mysqlserver
         - php
         - ufw
+        - postfix
         - spdeploy
