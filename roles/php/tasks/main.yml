@@ -23,7 +23,7 @@
 
 -   name: Installing PHP-FPM
     apt:
-        name: "php{{ item }}-fpm"
+        name: "php{{ item.name }}-fpm"
         state: present
     with_items:
         - "{{ phpversions }}"
