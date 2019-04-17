@@ -69,6 +69,7 @@
         dest: /etc/php/{{ item }}/fpm/conf.d/10-serverpack.ini
     with_items:
         - "{{ phpversions }}"
+    notify: reload php {{ item }}
 
 -   name: Updating PHP-FPM configuration
     template:
@@ -76,4 +77,4 @@
         dest: /etc/php/{{ item }}/fpm/php-fpm.conf
     with_items:
         - "{{ phpversions }}"
-    notify: reload php
+    notify: reload php {{ item }}

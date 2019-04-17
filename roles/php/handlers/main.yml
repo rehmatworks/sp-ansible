@@ -1,10 +1,51 @@
 ---
--   name: restart php
+-   name: restart php 5.6
     service:
         name: php5.6-fpm
         state: restarted
 
--   name: reload php
+-   name: restart php 7.0
+    service:
+        name: php7.0-fpm
+        state: restarted
+
+-   name: restart php 7.1
+    service:
+        name: php7.1-fpm
+        state: restarted
+
+-   name: restart php 7.2
+    service:
+        name: php7.2-fpm
+        state: restarted
+
+-   name: restart php 7.3
+    service:
+        name: php7.3-fpm
+        state: restarted
+
+---
+-   name: reload php 5.6
     service:
         name: php5.6-fpm
+        state: reloaded
+
+-   name: reload php 7.0
+    service:
+        name: php7.0-fpm
+        state: reloaded
+
+-   name: reload php 7.1
+    service:
+        name: php7.1-fpm
+        state: reloaded
+
+-   name: reload php 7.2
+    service:
+        name: php7.2-fpm
+        state: reloaded
+
+-   name: reload php 7.3
+    service:
+        name: php7.3-fpm
         state: reloaded
