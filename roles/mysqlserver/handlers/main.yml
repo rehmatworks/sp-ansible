@@ -1,5 +1,5 @@
 ---
-name: Starting MySQL server
-service:
-    name: mysql
-    state: started
+-   name: Starting MySQL server
+    service:
+        name: mysql
+        state: started
