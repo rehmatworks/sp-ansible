@@ -9,7 +9,7 @@
         entity: root
         etype: user
         permissions: rwx
-        recurse: yes
+        recursive: yes
         state: present
 
 -   name: Configuring ACL for serverpack group
