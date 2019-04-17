@@ -4,9 +4,7 @@
         state: present
 
 -   name: Ensure locale is in tact
-    locale_gen:
-        name: en_US.UTF-8
-        state: present
+    command: export LC_ALL=C
 
 -   name: Creating web root directory
     file:
