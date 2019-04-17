@@ -9,21 +9,21 @@
 
 -   name: Installing selected PHP versions
     apt:
-        name: php{{ item.key }}
+        name: "php{{ item.key }}"
         state: present
     with_items:
         - "{{ phpversions }}"
 
 -   name: Installing PHP modules
     apt:
-        name: {{ item.value }}
+        name: "{{ item.value }}"
         state: present
     with_items:
         - "{{ phpversions }}"
 
 -   name: Installing PHP-FPM
     apt:
-        name: php{{ item }}-fpm
+        name: "php{{ item }}-fpm"
         state: present
     with_items:
         - "{{ phpversions }}"
