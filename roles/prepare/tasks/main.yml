@@ -3,6 +3,11 @@
         path: "{{ webroot }}"
         state: directory
 
+-   name: Create default group
+    group:
+        name: "{{ defaultgroup }}"
+        state: present
+
 -   name: Configuring ACL for root
     acl:
         path: "{{ webroot }}"
