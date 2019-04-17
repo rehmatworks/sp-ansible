@@ -1,5 +1,6 @@
 -   name: Installing MySQL server
-    apt: mysql-server
+    apt: ["MySQL-python", "mysql", "mysql-server"]
+    state: present
 
 -   name: Updaging root password
     mysql_user: name=root host={{ item }} password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
