@@ -1,6 +1,6 @@
 -   name: Installing MySQL Python module (Required)
     pip:
-        name: MySQL-python
+        name: mysqlclient
         executable: pip3
 
 -   name: Installing MySQL server
