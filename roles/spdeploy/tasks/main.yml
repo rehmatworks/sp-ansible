@@ -3,87 +3,87 @@
         executable: pip3
         name: virtualenv
 
-    - name: "Clonning GIT repo of ServerPack"
-      git:
+-   name: "Clonning GIT repo of ServerPack"
+    git:
         repo: "{{ repourl }}"
         dest: "{{ cproot }}"
         accept_hostkey: yes
 
-    - name: "Creating virtualenv"
-      command: virtualenv "{{ venvroot }}" creates="{{ venvroot }}"
+-   name: "Creating virtualenv"
+    command: virtualenv "{{ venvroot }}" creates="{{ venvroot }}"
 
-    - name: "Installing ServerPack packages"
-      pip:
+-   name: "Installing ServerPack packages"
+    pip:
         virtualenv: "{{ venvroot }}"
         requirements: "{{ cproot }}/requirements.txt"
 
-    - name: "Running migrations"
-      django_manage:
-          virtualenv: "{{ venvroot }}"
-          command: migrate
-          app_path: "{{ cproot }}"
+-   name: "Running migrations"
+    django_manage:
+        virtualenv: "{{ venvroot }}"
+        command: migrate
+        app_path: "{{ cproot }}"
 
-    - name: "Creating root login account."
-      django_manage:
-          virtualenv: "{{ venvroot }}"
-          command: "createspuser --username={{ username }} --email={{ email }} --password={{ password }}"
-          app_path: "{{ cproot }}"
+-   name: "Creating root login account."
+    django_manage:
+        virtualenv: "{{ venvroot }}"
+        command: "createspuser --username={{ username }} --email={{ email }} --password={{ password }}"
+        app_path: "{{ cproot }}"
 
-    - name: "Installing PIP packages"
-      pip:
-          virtualenv: "{{ venvroot }}"
-          name: gunicorn
+-   name: "Installing Gunicorn server for ServerPack control panel."
+    pip:
+        virtualenv: "{{ venvroot }}"
+        name: gunicorn
 
-    - name: "Creating serverpack service"
-      template:
-          src: serverpack.service.j2
-          dest: "/etc/systemd/system/{{ gunicornservice }}.service"
+-   name: "Creating serverpack service"
+    template:
+        src: serverpack.service.j2
+        dest: "/etc/systemd/system/{{ gunicornservice }}.service"
 
-    - name: "Creating serverpack directories"
-      file:
-          state: directory
-          path: "{{ spsslroot }}"
+-   name: "Creating serverpack directories"
+    file:
+        state: directory
+        path: "{{ spsslroot }}"
 
-    - name: "Generating RSA private key"
-      command: openssl genrsa \
+-   name: "Generating RSA private key"
+    command: openssl genrsa \
         -out "{{ privkeypath }}" 2048
-      args:
+    args:
         creates: "{{ privkeypath }}"
 
-    - name: "Generating certificate signing request"
-      command: openssl req \
+-   name: "Generating certificate signing request"
+    command: openssl req \
         -new \
         -subj '/C=PK/ST=GB/L=Gilgit Baltistan/O=ServerPack/CN={{ hostname }}'
         -key "{{ privkeypath }}" \
         -out "{{ csrpath }}"
-      args:
+    args:
         creates: "{{ csrpath }}"
 
-    - name: "Generating a self-signed certificate for ServerPack"
-      command: openssl req \
+-   name: "Generating a self-signed certificate for ServerPack"
+    command: openssl req \
         -x509 \
         -days 7300 \
         -key "{{ privkeypath }}" \
         -in "{{ csrpath }}" \
         -out "{{ crtpath }}"
-      args:
+    args:
         creates: "{{ crtpath }}"
 
-    - name: "Creating vhost file"
-      template:
-          src: sp-vhost.j2
-          dest: "{{ spvhostpath }}"
+-   name: "Creating vhost file"
+    template:
+        src: sp-vhost.j2
+        dest: "{{ spvhostpath }}"
 
-    - name: "Enabling serverpack service"
-      service:
-          name: "{{ gunicornservice }}"
-          state: started
-          enabled: yes
+-   name: "Enabling serverpack service"
+    service:
+        name: "{{ gunicornservice }}"
+        state: started
+        enabled: yes
 
-    - name: "Reloading daemon"
-      command: systemctl daemon-reload
+-   name: "Reloading daemon"
+    command: systemctl daemon-reload
 
-    - name: "Restarting serverpack service"
-      service:
-          name: "{{ gunicornservice }}"
-          state: restarted
+-   name: "Restarting serverpack service"
+    service:
+        name: "{{ gunicornservice }}"
+        state: restarted
