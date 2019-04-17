@@ -1,11 +1,11 @@
 ---
-- hosts:    127.0.0.1
-  connection:   local
-  roles:
-      - prepare
-      - apache
-      - nginx
-      - mysqlserver
-      - php
-      - ufw
-      - spdeploy
+-   name: "Installing ServerPack control panel."
+    hosts: localhost
+    roles:
+        - prepare
+        - apache
+        - nginx
+        - mysqlserver
+        - php
+        - ufw
+        - spdeploy
