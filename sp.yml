@@ -21,6 +21,7 @@
     pre_tasks:
         -   assert:
                 that: password | length > 6
+                fail_msg: "password must be at least 6 characters long"
     roles:
         - requirements
         - prepare
