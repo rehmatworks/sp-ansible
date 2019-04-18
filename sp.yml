@@ -17,7 +17,8 @@
             confirm: yes
             private: yes
             default: "serverpack"
-    pre_roles:
+
+    pre_tasks::
         -   assert:
                 that: password | length > 6
     roles:
