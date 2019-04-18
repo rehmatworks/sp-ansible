@@ -1,5 +1,5 @@
 ---
-spready: ansible_distribution == 'Ubuntu' and ansible_lsb.major_release|int >= 16
+spready: ansible_facts['distribution'] == 'Ubuntu' and ansible_facts['distribution_major_version']|int >= 16
 spname: serverpack
 vhostdir: vhosts.d
 webroot: /srv/data
