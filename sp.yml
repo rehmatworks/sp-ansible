@@ -1,6 +1,25 @@
 ---
 -   name: "Installing ServerPack control panel."
     hosts: localhost
+    vars_prompt:
+        -   name: "username"
+            prompt: "set control panel username"
+            private: no
+            default: "serverpack"
+
+        -   name: "email"
+            prompt: "your email address"
+            private: no
+            default: "admin@example.com"
+
+        -   name: "password"
+            prompt: "password"
+            confirm: yes
+            private: yes
+            default: "serverpack"
+    pre_tasks:
+        -   assert:
+                that: password | length > 6
     roles:
         - requirements
         - prepare
