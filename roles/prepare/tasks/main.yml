@@ -42,10 +42,10 @@
         state: present
 
 -   name: Configuring ACL for root user
-    acl: "setfacl -Rdm u:root:rwx {{ mainroot }}"
+    acl: "setfacl -R -d -m u:root:rwx {{ mainroot }}"
 
 -   name: Configuring ACL for serverpack group
-    command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ mainroot }}"
+    command: "setfacl -R -d -m g:{{ defaultgroup }}:x {{ mainroot }}"
 
 -   name: Updating bash profile
     template:
