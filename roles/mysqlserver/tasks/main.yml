@@ -1,4 +1,4 @@
--   name: Installing MySQL Python module (Required)
+-   name: Installing MySQL Python module
     pip:
         name: MySQL-python
 
