@@ -3,9 +3,15 @@
         name: apache2
         state: present
 
--   name: Installing some needed modules
+-   name: Enabling libapache2-mod-fcgid module
     apt:
-        name: ["libapache2-mod-fcgid"]
+        name: libapache2-mod-fcgid
+        state: present
+    notify: restart apache
+
+-   name: Enabling rewrite module
+    apt:
+        name: rewrite
         state: present
     notify: restart apache
 
