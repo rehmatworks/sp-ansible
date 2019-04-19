@@ -42,10 +42,22 @@
         state: present
 
 -   name: Configuring ACL for root user
-    command: "setfacl -R -m u:root:rwx {{ mainroot }}"
+    acl:
+        path: "{{ mainroot }}"
+        entity: root
+        etype: user
+        default: yes
+        permissions: rwx
+        state: present
 
 -   name: Configuring ACL for serverpack group
-    command: "setfacl -R -m g:{{ defaultgroup }}:x {{ mainroot }}"
+    acl:
+        path: "{{ mainroot }}"
+        entity: "{{ defaultgroup }}"
+        etype: group
+        default: yes
+        permissions: x
+        state: present
 
 -   name: Updating bash profile
     template:
