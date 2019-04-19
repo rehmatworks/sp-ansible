@@ -52,7 +52,7 @@
         url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         dest: "{{ root_bin }}/wp"
         force_basic_auth: yes
-        mode: 0755
+        mode: a+x
 
 -   name: Updating bash profile
     template:
