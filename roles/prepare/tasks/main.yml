@@ -43,7 +43,7 @@
 
 -   name: Configuring ACL for root user
     acl:
-        path: "{{ webroot }}"
+        path: "{{ mainroot }}"
         entity: root
         etype: user
         permissions: rwx
@@ -52,7 +52,7 @@
 
 -   name: Configuring ACL for serverpack group
     acl:
-        path: "{{ webroot }}"
+        path: "{{ mainroot }}"
         entity: "{{ defaultgroup }}"
         etype: group
         permissions: x

@@ -17,7 +17,7 @@
 -   name: Updating Apache configuration
     template:
         src: conf.j2
-        dest: "{{ apacheroot }}/apache.conf"
+        dest: "{{ apacheroot }}/apache2.conf"
     notify: restart apache
 
 -   name: Updating ports configuration
@@ -37,7 +37,7 @@
 
 -   name: Enabling Apache rewrite module
     apache2_module:
-        name: rewrite
+        name: ['rewrite', 'proxy_fcgi']
         state: present
 
 -   name: Restarting Apache

@@ -1,6 +1,7 @@
 ---
 spname: serverpack
 vhostdir: vhosts.d
+mainroot: '/srv'
 webroot: /srv/data
 defaultgroup: spgroup
 mysql_root_pass: serverpackpass
