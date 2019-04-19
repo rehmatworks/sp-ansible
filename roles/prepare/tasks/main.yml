@@ -47,6 +47,13 @@
 -   name: Configuring ACL for serverpack group
     command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ webroot }}"
 
+-   name: Installing wp-cli for WordPress management
+    get_url:
+        url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+        dest: "{{ root_bin }}/wp"
+        force_basic_auth: yes
+        mode: 0755
+
 -   name: Updating bash profile
     template:
         src: bashrc.j2
