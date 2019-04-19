@@ -42,19 +42,12 @@
         state: present
 
 -   name: Configuring ACL for root user
-    acl:
-        path: "{{ mainroot }}"
-        entity: root
-        etype: user
-        permissions: rwx
-        recursive: yes
-        state: present
+    command: "setfacl -R -m u:roor:rwx {{ mainroot }}"
 
 -   name: Configuring ACL for serverpack group
-    acl:
-        path: "{{ mainroot }}"
-        entity: "{{ defaultgroup }}"
-        etype: group
-        permissions: x
-        recursive: yes
-        state: present
+    command: "setfacl -R -m g:{{ defaultgroup }}:x {{ mainroot }}"
+
+-   name: Updating bash profile
+    template:
+        src: bashrc.j2
+        dest: /etc/bash.bashrc
