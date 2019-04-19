@@ -3,15 +3,9 @@
         name: apache2
         state: present
 
--   name: Enabling libapache2-mod-fcgid module
+-   name: Installing some needed modules
     apt:
-        name: libapache2-mod-fcgid
-        state: present
-    notify: restart apache
-
--   name: Enabling rewrite module
-    apt:
-        name: rewrite
+        name: ["libapache2-mod-fcgid"]
         state: present
     notify: restart apache
 
@@ -43,7 +37,12 @@
 
 -   name: Enabling Apache rewrite module
     apache2_module:
-        name: ['rewrite', 'proxy_fcgi']
+        name: rewrite
+        state: present
+
+-   name: Enabling Apache proxy_fcgi module
+    apache2_module:
+        name: proxy_fcgi
         state: present
 
 -   name: Restarting Apache
