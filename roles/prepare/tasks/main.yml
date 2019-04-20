@@ -42,7 +42,7 @@
         state: present
 
 -   name: Configuring ACL for root user
-    command: "setfacl -R -d -m u:root:rwx {{ webroot }}"
+    command: "setfacl -Rdm u:root:rwx {{ webroot }}"
 
 -   name: Configuring ACL for serverpack group
     command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ webroot }}"
