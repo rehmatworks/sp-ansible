@@ -20,6 +20,12 @@
         dest: "{{ nginxroot }}/proxy_params"
     notify: reload nginx
 
+-   name: Configuring default server vhost
+    template:
+        src: defaultserver.j2
+        dest: "{{ nginxroot }}/conf.d/default.conf"
+    notify: reload nginx
+
 -   name: Deleting obsolete directories
     file:
         path: "{{ item }}"
