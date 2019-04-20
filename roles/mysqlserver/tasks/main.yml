@@ -8,12 +8,7 @@
         state: present
 
 -   name: Updating root password
-    mysql_user: name=root host={{ item }} password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
-    with_items:
-        - "{{ ansible_hostname }}"
-        - 127.0.0.1
-        - ::1
-        - localhost
+    mysql_user: name=root host_all=yes password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
 
 -   name: Generating conf file
     template:
