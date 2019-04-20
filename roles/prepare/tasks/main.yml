@@ -64,7 +64,7 @@
 
 -   name: Creating wp-cli config directory
     file:
-        src: "wpcliconfroot"
+        path: "wpcliconfroot"
         state: directory
 
 -   name: Writing global config for wp-cli
