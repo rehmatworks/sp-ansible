@@ -7,6 +7,7 @@ apache_modules:
 
 core config:
     extra-php: |
+        /* Custom constants added by ServerPack */
         define( 'WP_POST_REVISIONS', 3 );
         define( 'SP_BROWSER_URL', ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] );
         define( 'WP_MEMORY_LIMIT', '256M' );
