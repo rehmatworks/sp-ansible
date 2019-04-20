@@ -9,9 +9,6 @@
         name: ["mysql-server"]
         state: present
 
--   name: Updating root password
-    mysql_user: name=root host_all=yes password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
-
 -   name: Generating conf file
     template:
         src: cnf.j2
@@ -19,6 +16,9 @@
         owner: root
         mode: 0600
     notify: start mysql
+
+-   name: Updating root password
+    mysql_user: name=root host_all=yes password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
 
 -   name: Removing annonymous MySQL users
     mysql_user: name="" host={{ item }} state=absent
