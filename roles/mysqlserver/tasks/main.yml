@@ -1,7 +1,3 @@
--   name: Installing MySQL Python module
-    pip:
-        name: MySQL-python
-
 -   name: Installing MySQL server
     apt:
         name: ["mysql-server"]
