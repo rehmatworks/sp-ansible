@@ -1,5 +1,5 @@
 ---
-wpcliconfroot: /srv/.configs/wp-cli/wp-cli.yml
+wpcliconfroot: /srv/.configs/wp-cli
 wpcliconf: "{{ wpcliconfroot }}/wp-cli.yml"
 os_environment:
     -   key: WP_CLI_CONFIG_PATH
