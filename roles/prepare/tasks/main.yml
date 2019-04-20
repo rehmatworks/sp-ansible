@@ -58,3 +58,16 @@
     template:
         src: bashrc.j2
         dest: /etc/bash.bashrc
+
+-   name: Setting bash as default shell
+    lineinfile:
+        path: /etc/default/useradd
+        regexp: '^SHELL=/bin/sh'
+        line: 'SHELL=/bin/bash'
+
+-   name: Enabling SSH password authentication
+    lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication.*no'
+        line: 'PasswordAuthentication yes'
+    notify: restart_sshd
