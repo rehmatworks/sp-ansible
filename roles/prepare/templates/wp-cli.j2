@@ -1,0 +1,15 @@
+disabled_commands:
+    - db drop
+    - plugin install
+require:
+    - path-to/command.php
+
+apache_modules:
+    - mod_rewrite
+
+extra-php: |
+    define( 'WP_DEBUG', true );
+    define( 'WP_POST_REVISIONS', 50 );
+    define('SP_BROWSER_URL', ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']);
+    define('WP_SITEURL', SP_BROWSER_URL);
+    define('WP_HOME', SP_BROWSER_URL);

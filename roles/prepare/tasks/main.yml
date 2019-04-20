@@ -47,12 +47,31 @@
 -   name: Configuring ACL for serverpack group
     command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ webroot }}"
 
+-   name: Setting environmental variables
+    lineinfile:
+        dest: "/etc/environment"
+        state: present
+        regexp: "^{{ item.key }}"
+        line: "{{ item.key }}={{ item.value}}"
+    with_items: "{{ os_environment }}"
+
 -   name: Installing wp-cli for WordPress management
     get_url:
         url: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
         dest: "{{ binpath }}/wp"
         force_basic_auth: yes
         mode: a+x
+
+-   name: Creating wp-cli config directory
+    file:
+        src: "wpcliconfroot"
+        state: directory
+
+-   name: Writing global config for wp-cli
+    template:
+        src: wp-cli.j2
+        dest: "{{ wpcliconf }}"
+
 
 -   name: Updating bash profile
     template:
