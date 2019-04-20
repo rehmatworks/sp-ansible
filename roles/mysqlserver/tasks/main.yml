@@ -18,7 +18,7 @@
     notify: start mysql
 
 -   name: Updating root password
-    mysql_user: name=root host_all=yes password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
+    mysql_user: name=root password={{ mysql_root_pass }} priv=*.*:ALL,GRANT
 
 -   name: Removing annonymous MySQL users
     mysql_user: name="" host={{ item }} state=absent
