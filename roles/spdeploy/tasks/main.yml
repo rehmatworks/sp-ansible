@@ -27,14 +27,14 @@
     cron:
         name: "provision ssl"
         minute: "*/5"
-        job: "{{ venvroot }}/bin/python {{ cproot }}/manage.py getssl >> /dev/null 2>&1"
+        job: "cd {{ cproot }} &&  {{ venvroot }}/bin/python manage.py getssl >> /dev/null 2>&1"
         state: present
 
 -   name: "Configuring SSL renewing CRON job"
     cron:
         name: "renew ssl"
         special_time: weekly
-        job: "{{ venvroot }}/bin/python {{ cproot }}/manage.py renewssl >> /dev/null 2>&1"
+        job: "cd {{ cproot }} && {{ venvroot }}/bin/python manage.py renewssl >> /dev/null 2>&1"
         state: present
 
 -   name: Symlinking paths to prevent NGINX binary CRON error
