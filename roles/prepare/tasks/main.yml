@@ -1,6 +1,6 @@
 -   name: Installing required libraries
     apt:
-        name: ["python-pip", "python3-pip", "build-essential", "python-mysqldb", "acl", "libmysqlclient-dev"]
+        name: ["software-properties-common", "python-pip", "python3-pip", "build-essential", "python-mysqldb", "acl", "libmysqlclient-dev"]
         state: present
 
 -   name: Setting up default locale
@@ -90,3 +90,17 @@
         regexp: '^PasswordAuthentication.*no'
         line: 'PasswordAuthentication yes'
     notify: restart_sshd
+
+-   name: Adding Certbot PPA for SSL provisioning
+    apt_repository:
+        repo: ppa:certbot/certbot
+        state: present
+
+-   name: Updating packages
+    apt:
+        update_cache: yes
+
+-   name: Installing Certbot
+    apt:
+        name: certbot
+        state: present

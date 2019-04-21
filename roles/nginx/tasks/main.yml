@@ -34,3 +34,8 @@
         - "{{ nginxroot }}/sites-available"
         - "{{ nginxroot }}/sites-enabled"
     notify: restart nginx
+
+-   name: Installing Certbot NGINX plugin
+    apt:
+        name: python-certbot-nginx 
+        state: present
