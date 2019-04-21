@@ -42,7 +42,7 @@
         src: /usr/sbin/nginx
         dest: /usr/bin/nginx
         state: link
-        ignore_errors: yes
+    ignore_errors: yes
 
 -   name: "Creating root login account."
     django_manage:
