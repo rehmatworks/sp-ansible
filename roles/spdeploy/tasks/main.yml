@@ -37,6 +37,13 @@
         job: "{{ venvroot }}/bin/python {{ cproot }}/manage.py renewssl >> /dev/null 2>&1"
         state: present
 
+-   name: Symlinking paths to prevent NGINX binary CRON error
+    file:
+        src: /usr/sbin/nginx
+        dest: /usr/bin/nginx
+        state: link
+        ignore_errors: yes
+
 -   name: "Creating root login account."
     django_manage:
         command: "createspuser --username={{ username }} --email={{ email }} --password={{ password }}"
