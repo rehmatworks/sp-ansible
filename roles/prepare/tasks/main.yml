@@ -80,13 +80,13 @@
 
 -   name: Setting bash as default shell
     lineinfile:
-        path: /etc/default/useradd
+        dest: /etc/default/useradd
         regexp: '^SHELL=/bin/sh'
         line: 'SHELL=/bin/bash'
 
 -   name: Enabling SSH password authentication
     lineinfile:
-        path: /etc/ssh/sshd_config
+        dest: /etc/ssh/sshd_config
         regexp: '^PasswordAuthentication.*no'
         line: 'PasswordAuthentication yes'
     notify: restart_sshd
