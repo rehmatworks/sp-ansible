@@ -87,3 +87,17 @@
     service:
         name: "{{ gunicornservice }}"
         state: restarted
+
+-   name: "Configuring SSL provision CRON job"
+    cron:
+        name: "provision ssl"
+        minute: */5
+        value: "{{ venvroot }} {{ cproot }}/manage.py getssl"
+        state: present
+
+-   name: "Configuring SSL renewing CRON job"
+    cron:
+        name: "renew ssl"
+        special_time: weekly
+        value: "{{ venvroot }} {{ cproot }}/manage.py renewssl"
+        state: present
