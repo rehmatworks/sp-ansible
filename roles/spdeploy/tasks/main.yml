@@ -26,7 +26,7 @@
 -   name: "Configuring SSL provision CRON job"
     cron:
         name: "provision ssl"
-        minute: */5
+        minute: "*/5"
         value: "{{ venvroot }} {{ cproot }}/manage.py getssl"
         state: present
 
