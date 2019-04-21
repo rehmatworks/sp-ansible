@@ -27,14 +27,14 @@
     cron:
         name: "provision ssl"
         minute: "*/5"
-        job: "{{ venvroot }} {{ cproot }}/manage.py getssl"
+        job: "{{ venvroot }}/bin/python {{ cproot }}/manage.py getssl"
         state: present
 
 -   name: "Configuring SSL renewing CRON job"
     cron:
         name: "renew ssl"
         special_time: weekly
-        job: "{{ venvroot }} {{ cproot }}/manage.py renewssl"
+        job: "{{ venvroot }}/bin/python {{ cproot }}/manage.py renewssl"
         state: present
 
 -   name: "Creating root login account."
