@@ -9,7 +9,7 @@ core config:
     extra-php: |
         /* Custom constants added by ServerPack */
         define( 'WP_POST_REVISIONS', 3 );
-        define( 'SP_BROWSER_URL', ($_SERVER['HTTPS'] ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] );
+        define( 'SP_BROWSER_URL', (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] );
         define( 'WP_MEMORY_LIMIT', '256M' );
         define( 'WP_SITEURL', SP_BROWSER_URL );
         define( 'WP_HOME', SP_BROWSER_URL );
