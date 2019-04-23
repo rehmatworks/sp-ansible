@@ -7,9 +7,15 @@ apache_modules:
 
 core config:
     extra-php: |
-        /* Custom constants added by ServerPack */
+        /* Custom code added by ServerPack */
+        if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+            $_SERVER['HTTPS']='on';
+            $sp_browser_url = 'https://' . $_SERVER['HTTP_HOST'];
+        } else {
+            $sp_browser_url = 'http://' . $_SERVER['HTTP_HOST'];
+        }
         define( 'WP_POST_REVISIONS', 3 );
-        define( 'SP_BROWSER_URL', (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] );
+        define( 'SP_BROWSER_URL', $sp_browser_url);
         define( 'WP_MEMORY_LIMIT', '256M' );
         define( 'WP_SITEURL', SP_BROWSER_URL );
         define( 'WP_HOME', SP_BROWSER_URL );
