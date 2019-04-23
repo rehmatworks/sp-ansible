@@ -26,7 +26,7 @@
 -   name: "Configuring SSL renewing CRON job"
     cron:
         name: "renew ssl"
-        special_time: weeklys
+        special_time: weekly
         job: "cd {{ cproot }} && {{ venvroot }}/bin/python manage.py renewssl >> /dev/null 2>&1"
         state: present
 
