@@ -1,6 +1,6 @@
 -   name: Installing required libraries
     apt:
-        name: ["software-properties-common", "python-pip", "python3-pip", "build-essential", "python-mysqldb", "acl", "libmysqlclient-dev"]
+        name: ["software-properties-common", "python-pip", "python3-pip", "build-essential", "python-mysqldb", "zip", "acl", "libmysqlclient-dev"]
         state: present
 
 -   name: Setting up default locale
