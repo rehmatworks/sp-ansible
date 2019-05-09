@@ -16,35 +16,35 @@
 
 -   name: Installing PHP 5.6 modules
     apt:
-        name: "php5.6-{{ item }}"
+        name: ['php5.6-{{ phpmodules }}']
         state: present
     with_items:
         - "{{ phpmodules }}"
 
 -   name: Installing PHP 7.0 modules
     apt:
-        name: "php7.0-{{ item }}"
+        name: ['php7.0-{{ phpmodules }}']
         state: present
     with_items:
         - "{{ phpmodules }}"
 
 -   name: Installing PHP 7.1 modules
     apt:
-        name: "php7.1-{{ item }}"
+        name: ['php7.1-{{ phpmodules }}']
         state: present
     with_items:
         - "{{ phpmodules }}"
 
 -   name: Installing PHP 7.2 modules
     apt:
-        name: "php7.2-{{ item }}"
+        name: ['php7.2-{{ phpmodules }}']
         state: present
     with_items:
         - "{{ phpmodules }}"
 
 -   name: Installing PHP 7.3 modules
     apt:
-        name: "php7.3-{{ item }}"
+        name: ['php7.3-{{ phpmodules }}']
         state: present
     with_items:
         - "{{ phpmodules }}"

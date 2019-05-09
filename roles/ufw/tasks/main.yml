@@ -1,6 +1,7 @@
 -   name: "Configuring firewall"
     ufw:
         state: enabled
+        direction: incoming
         policy: deny
 
 -   name: "Opening needed ports"
