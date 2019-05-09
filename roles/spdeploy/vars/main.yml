@@ -7,6 +7,5 @@ venvroot: "{{ sproot }}/spvenv"
 gunicornservice: serverpack
 spsslroot: "{{ spnginxroot }}/ssl"
 privkeypath: "{{ spsslroot }}/privkey.pem"
-spvhostpath: "{{ spnginxroot }}/serverpack.conf"
 csrpath: "{{ spsslroot }}/csr.pem"
 crtpath: "{{ spsslroot }}/sp.pem"

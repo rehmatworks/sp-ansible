@@ -30,13 +30,6 @@
         job: "cd {{ cproot }} && {{ venvroot }}/bin/python manage.py renewssl >> /dev/null 2>&1"
         state: present
 
--   name: Symlinking paths to prevent NGINX binary CRON error
-    file:
-        src: /usr/sbin/nginx
-        dest: /usr/bin/nginx
-        state: link
-    ignore_errors: yes
-
 -   name: "Creating root login account."
     django_manage:
         command: "createspuser --username={{ username }} --email={{ email }} --password={{ password }}"
@@ -47,11 +40,6 @@
     pip:
         virtualenv: "{{ venvroot }}"
         name: gunicorn
-
--   name: "Creating serverpack service"
-    template:
-        src: serverpack.service.j2
-        dest: "/etc/systemd/system/{{ gunicornservice }}.service"
 
 -   name: "Creating serverpack directories"
     file:
@@ -83,16 +71,16 @@
     args:
         creates: "{{ crtpath }}"
 
--   name: "Creating vhost file"
-    template:
-        src: sp-vhost.j2
-        dest: "{{ spvhostpath }}"
-
 -   name: "Enabling serverpack service"
     service:
         name: "{{ gunicornservice }}"
         state: started
         enabled: yes
+
+-   name: "Creating serverpack service"
+    template:
+        src: serverpack.service.j2
+        dest: "/etc/systemd/system/{{ gunicornservice }}.service"
 
 -   name: "Reloading daemon"
     command: systemctl daemon-reload
