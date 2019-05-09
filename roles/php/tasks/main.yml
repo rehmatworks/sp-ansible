@@ -41,7 +41,7 @@
 
 -   name: Installing PHP-FPM
     apt:
-        name: ['{{ phpfpmversions }}']
+        name: "{{ phpfpmversions }}"
         state: present
 
 -   name: Updating selected PHP ini values
