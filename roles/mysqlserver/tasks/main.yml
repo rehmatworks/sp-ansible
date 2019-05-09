@@ -56,6 +56,6 @@
 
 -   name: configure site
     file:
-        path: {{ apacheroot }}/{{ vhostdir }}/pma.conf
+        path: "{{ apacheroot }}/{{ vhostdir }}/pma.conf"
         src: /usr/share/phpmyadmin
         state: link
