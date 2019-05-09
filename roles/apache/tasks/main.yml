@@ -44,6 +44,11 @@
         name: proxy_fcgi
         state: present
 
+-   name: Installing Certbot Apache plugin
+    apt:
+        name: python-certbot-apache
+        state: present
+
 -   name: Restarting Apache
     service:
         name: apache2
