@@ -8,7 +8,7 @@ apache_modules:
 core config:
     extra-php: |
         /* Custom code added by ServerPack */
-        if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+        if ($_SERVER['HTTPS']) {
             $_SERVER['HTTPS']='on';
             $sp_browser_url = 'https://' . $_SERVER['HTTP_HOST'];
         } else {
