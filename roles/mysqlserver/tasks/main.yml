@@ -60,6 +60,9 @@
         src: /etc/phpmyadmin/apache.conf
         state: link
 
+-   name: Applying a fix for an SQL related in phpMyAdmin
+    command: sudo sed -i "s/|\s*\((count(\$analyzed_sql_results\['select_expr'\]\)/| (\1)/g" /usr/share/phpmyadmin/libraries/sql.lib.php
+
 -   name: Reloading Apache server
     service:
         name: apache2
