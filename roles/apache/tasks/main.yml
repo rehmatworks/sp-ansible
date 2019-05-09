@@ -31,7 +31,12 @@
 
 -   name: Enabling Apache rewrite module
     apache2_module:
-        name: ["rewrite", "ssl"]
+        name: rewrite
+        state: present
+
+-   name: Enabling Apache SSL module
+    apache2_module:
+        name: ssl
         state: present
 
 -   name: Enabling mod_expires module
