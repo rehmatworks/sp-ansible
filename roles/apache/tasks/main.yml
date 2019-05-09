@@ -5,7 +5,7 @@
 
 -   name: Installing some needed modules
     apt:
-        name: ["libapache2-mod-fcgid", "ssl"]
+        name: ["libapache2-mod-fcgid"]
         state: present
     notify: restart apache
 
@@ -31,7 +31,7 @@
 
 -   name: Enabling Apache rewrite module
     apache2_module:
-        name: rewrite
+        name: ["rewrite", "ssl"]
         state: present
 
 -   name: Enabling mod_expires module
