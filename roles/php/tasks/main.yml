@@ -16,38 +16,28 @@
 
 -   name: Installing PHP 5.6 modules
     apt:
-        name: ['{{ php56modules }}']
+        name: "{{ php56modules }}"
         state: present
-    with_items:
-        - "{{ php56modules }}"
 
 -   name: Installing PHP 7.0 modules
     apt:
-        name: ['php7.0-{{ phpmodules }}']
+        name: "{{ php70modules }}"
         state: present
-    with_items:
-        - "{{ php70modules }}"
 
 -   name: Installing PHP 7.1 modules
     apt:
-        name: ['{{ php71modules }}']
+        name: "{{ php71modules }}"
         state: present
-    with_items:
-        - "{{ php71modules }}"
 
 -   name: Installing PHP 7.2 modules
     apt:
-        name: ['{{ phpmodules }}']
+        name: "{{ php72modules }}"
         state: present
-    with_items:
-        - "{{ php72modules }}"
 
 -   name: Installing PHP 7.3 modules
     apt:
-        name: ['{{ phpmodules }}']
+        name: "{{ php73modules }}"
         state: present
-    with_items:
-        - "{{ php73modules }}"
 
 -   name: Installing PHP-FPM
     apt:
