@@ -33,3 +33,29 @@
         name: test
         state: absent
     notify: restart mysql
+
+-   name: Configuring phpMyAdmin installation
+    debconf: name=phpmyadmin question='phpmyadmin/dbconfig-install' value='true' vtype='boolean'
+
+-   name: Configuring phpMyAdmin to use MySQl root password
+    debconf: name=phpmyadmin question='phpmyadmin/app-password-confirm' value='{{mysql_root_pass}}' vtype='password'
+
+-   name: Configuring phpMyAdmin to use MySQl root password
+    debconf: name=phpmyadmin question='phpmyadmin/mysql/admin-pass' value='{{mysql_root_pass}}' vtype='password'
+
+-   name: Configuring phpMyAdmin to use MySQl root password
+    debconf: name=phpmyadmin question='phpmyadmin/mysql/app-pass' value='{{mysql_root_pass}}' vtype='password'
+
+-   name: Configuring webserver to serve phpMyAdmin
+    debconf: name=phpmyadmin question='phpmyadmin/reconfigure-webserver' value='' vtype='multiselect'
+
+-   name: Installing phpMyAdmin
+    apt:
+        name: phpmyadmin
+        state: present
+
+-   name: configure site
+    file:
+        path: {{ apacheroot }}/{{ vhostdir }}/pma.conf
+        src: /usr/share/phpmyadmin
+        state: link
