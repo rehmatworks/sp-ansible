@@ -5,8 +5,6 @@ mainroot: '/srv'
 webroot: /srv/data
 defaultgroup: spgroup
 mysql_root_pass: "{{ lookup('password', '/tmp/passwordfile chars=ascii_letters,digits') }}"
-nginxroot: /etc/nginx
-spnginxroot: "{{ nginxroot }}/{{ spname }}"
 apacheport: 8080
 spport: 2050
 apacheroot: /etc/apache2
