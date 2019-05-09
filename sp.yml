@@ -27,7 +27,6 @@
         - requirements
         - prepare
         - apache
-        - nginx
         - mysqlserver
         - php
         - ufw

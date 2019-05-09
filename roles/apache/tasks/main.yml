@@ -20,12 +20,6 @@
         dest: "{{ apacheroot }}/apache2.conf"
     notify: restart apache
 
--   name: Updating ports configuration
-    template:
-        src: ports.j2
-        dest: "{{ apacheroot }}/ports.conf"
-    notify: restart apache
-
 -   name: Deleting obsolete directories
     file:
         path: "{{ item }}"
@@ -38,6 +32,11 @@
 -   name: Enabling Apache rewrite module
     apache2_module:
         name: rewrite
+        state: present
+
+-   name: Enabling mod_expires module
+    apache2_module:
+        name: expires
         state: present
 
 -   name: Enabling Apache proxy_fcgi module
