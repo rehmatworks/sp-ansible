@@ -5,7 +5,7 @@
 
 -   name: Installing some needed modules
     apt:
-        name: ["libapache2-mod-fcgid"]
+        name: ["libapache2-mod-fcgid", "ssl"]
         state: present
     notify: restart apache
 
