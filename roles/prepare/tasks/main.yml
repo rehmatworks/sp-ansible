@@ -41,11 +41,11 @@
         name: "{{ defaultgroup }}"
         state: present
 
--   name: Configuring ACL for root user
-    command: "setfacl -Rdm u:root:rwx {{ webroot }}"
-
 -   name: Configuring ACL for serverpack group
-    command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ webroot }}"
+    command: "setfacl -Rdm g:{{ defaultgroup }}:x {{ mainroot }}"
+
+-   name: Configuring ACL for root user
+    command: "setfacl -Rdm u:root:rwx {{ mainroot }}"
 
 -   name: Setting environmental variables
     lineinfile:
