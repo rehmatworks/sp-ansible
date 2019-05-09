@@ -19,42 +19,40 @@
         name: ['php5.6-{{ phpmodules }}']
         state: present
     with_items:
-        - "{{ phpmodules }}"
+        - "{{ php56modules }}"
 
 -   name: Installing PHP 7.0 modules
     apt:
         name: ['php7.0-{{ phpmodules }}']
         state: present
     with_items:
-        - "{{ phpmodules }}"
+        - "{{ php70modules }}"
 
 -   name: Installing PHP 7.1 modules
     apt:
-        name: ['php7.1-{{ phpmodules }}']
+        name: ['{{ php71modules }}']
         state: present
     with_items:
-        - "{{ phpmodules }}"
+        - "{{ php71modules }}"
 
 -   name: Installing PHP 7.2 modules
     apt:
-        name: ['php7.2-{{ phpmodules }}']
+        name: ['{{ phpmodules }}']
         state: present
     with_items:
-        - "{{ phpmodules }}"
+        - "{{ php72modules }}"
 
 -   name: Installing PHP 7.3 modules
     apt:
-        name: ['php7.3-{{ phpmodules }}']
+        name: ['{{ phpmodules }}']
         state: present
     with_items:
-        - "{{ phpmodules }}"
+        - "{{ php73modules }}"
 
 -   name: Installing PHP-FPM
     apt:
-        name: "php{{ item }}-fpm"
+        name: ['{{ phpfpmversions }}']
         state: present
-    with_items:
-        - "{{ phpversions }}"
 
 -   name: Updating selected PHP ini values
     template:
