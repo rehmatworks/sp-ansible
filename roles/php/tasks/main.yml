@@ -16,7 +16,7 @@
 
 -   name: Installing PHP 5.6 modules
     apt:
-        name: ['php5.6-{{ phpmodules }}']
+        name: ['{{ php56modules }}']
         state: present
     with_items:
         - "{{ php56modules }}"
