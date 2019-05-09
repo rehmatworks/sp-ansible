@@ -24,11 +24,11 @@
                 that: password | length > 6
                 msg: "password must be at least 6 characters long"
     roles:
-        - requirements
-        - prepare
-        - apache
-        - mysqlserver
-        - php
-        - ufw
-        - postfix
+        # - requirements
+        # - prepare
+        # - apache
+        # - mysqlserver
+        # - php
+        # - ufw
+        # - postfix
         - spdeploy
