@@ -27,8 +27,8 @@
         # - requirements
         # - prepare
         # - apache
-        # - mysqlserver
+        - mysqlserver
         # - php
         # - ufw
         # - postfix
-        - spdeploy
+        # - spdeploy
