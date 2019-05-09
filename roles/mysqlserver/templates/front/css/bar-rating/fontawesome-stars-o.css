@@ -1,0 +1,65 @@
+.br-theme-fontawesome-stars-o .br-widget {
+  height: 28px;
+  white-space: nowrap;
+}
+
+.br-theme-fontawesome-stars-o .br-widget a {
+  font: normal normal normal 22px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+.br-theme-fontawesome-stars-o .br-widget a:after {
+  content: '\F006';
+  color: #ffb641;
+}
+
+.br-theme-fontawesome-stars-o .br-widget a.br-active:after,
+.br-theme-fontawesome-stars-o .br-widget a.br-selected:after {
+  content: '\F005';
+  color: #ffb641;
+}
+
+.br-theme-fontawesome-stars-o .br-widget a.br-fractional:after {
+  content: '\F123';
+  color: #ffb641;
+}
+
+.br-theme-fontawesome-stars-o .br-widget .br-current-rating {
+  display: none;
+}
+
+.br-theme-fontawesome-stars-o .br-readonly a {
+  cursor: default;
+}
+
+.br-theme-fontawesome-stars-o .br-reverse a.br-fractional {
+  display: inline-block;
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -webkit-filter: FlipH;
+          filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+@media print {
+  .br-theme-fontawesome-stars-o .br-widget a:after {
+    content: '\F006';
+    color: black;
+  }
+
+  .br-theme-fontawesome-stars-o .br-widget a.br-active:after,
+  .br-theme-fontawesome-stars-o .br-widget a.br-selected:after {
+    content: '\F005';
+    color: black;
+  }
+
+  .br-theme-fontawesome-stars-o .br-widget a.br-fractional:after {
+    content: '\F123';
+    color: black;
+  }
+}
+

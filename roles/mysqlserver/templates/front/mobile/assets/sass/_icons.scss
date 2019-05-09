@@ -1,0 +1,130 @@
+.icon1 {
+    display: inline-block;
+    vertical-align: middle;
+    &.icon1-fire {
+        width: 20px;
+        background-image: url(../images/fire.svg);
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: center;
+        height: 20px;
+    }
+    &.icon1-loop {
+        width: 23px;
+        background-image: url(../images/search.svg);
+        background-repeat: no-repeat;
+        background-size: 23px;
+        background-position: center;
+        height: 23px;
+    }
+    &.icon1-download {
+        width: 33px;
+        background-image: url(../images/cloud-out.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+    &.icon1-download:hover {
+        background-image: url(../images/cloud-out-hover.svg);
+    }
+    &.icon1-photography {
+        width: 33px;
+        background-image: url(../images/camera.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+  
+    &.icon1-social {
+        width: 33px;
+        background-image: url(../images/message.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+    
+    &.icon1-media {
+        width: 33px;
+        background-image: url(../images/film.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-tool {
+        width: 33px;
+        background-image: url(../images/cogwheel.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-lifestyle {
+        width: 33px;
+        background-image: url(../images/coffee-cup.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-productivity {
+        width: 33px;
+        background-image: url(../images/clock.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-shopping {
+        width: 33px;
+        background-image: url(../images/shopping-cart.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-maps-travel {
+        width: 33px;
+        background-image: url(../images/map-marker.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+ 
+    &.icon1-news {
+        width: 33px;
+        background-image: url(../images/doc.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-education {
+        width: 33px;
+        background-image: url(../images/book-open.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+   
+    &.icon1-other {
+        width: 33px;
+        background-image: url(../images/bag.svg);
+        background-repeat: no-repeat;
+        background-size: 33px;
+        background-position: center;
+        height: 33px;
+    }
+  
+}

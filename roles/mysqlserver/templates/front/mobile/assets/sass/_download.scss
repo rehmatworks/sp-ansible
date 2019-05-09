@@ -1,0 +1,89 @@
+.download-cont {
+    .content-box {
+        overflow: hidden;
+        @include transition(0.3s all);
+        &.expanded {
+            max-height: 5000px;
+        }
+    }
+    .app-info {
+        display: table;
+        width: 100%;
+        .app-thumb {
+            display: table-cell;
+            vertical-align: middle;
+            padding-right: 15px;
+            width: 90px;
+            img {
+                height: 90px;
+                width: 90px;
+            }
+        }
+        .right-half {
+            display: table-cell;
+            h4 {
+                font-size: 25px;
+                color: #24292D;
+                margin-bottom: 7px;
+            }
+            .version-ul {
+                margin-top: 15px;
+                li {
+                    width: 25%;
+                    display: inline-block;
+                    vertical-align: middle;
+                    p {
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: #24292D;
+                        a {
+                            color: $light-green;
+                            font-size: 12px;
+                            font-weight: 300;
+                        }
+                    }
+                    .down-info {
+                        font-size: 12px;
+                        color: #606365;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+    }
+    .down-wrap {
+        text-align: center;
+        margin-top: 25px;
+        a {
+            font-weight: 300;
+        }
+    }
+    .category-panel {
+        margin-top: 30px;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+    }
+    .top-sec-panel {
+        margin-top: 0;
+        .app-list {
+            >li {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+    .desc {
+        margin-top: 50px;
+        line-height: 20px;
+        h4 {
+            color: #0a1b29;
+            margin-bottom: 20px;
+        }
+        .description {
+            color: rgba(#0a1b29, 0.5);
+            font-size: 13px;
+            p {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

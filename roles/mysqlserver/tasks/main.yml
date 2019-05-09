@@ -54,8 +54,13 @@
         name: phpmyadmin
         state: present
 
--   name: configure site
+-   name: Enabling phpMyAdmin vhost
     file:
         path: "{{ apacheroot }}/{{ vhostdir }}/pma.conf"
-        src: /usr/share/phpmyadmin
+        src: /etc/phpmyadmin/apache.conf
         state: link
+
+-   name: Reloading Apache server
+    service:
+        name: apache2
+        state: reloaded
